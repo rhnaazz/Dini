@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hapid</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent-color: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            background-image: 
+                linear-gradient(rgba(200,200,200,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,200,200,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        .main-content {
+            margin-left: 0;
+            padding: 2rem;
+            transition: margin-left 0.3s ease;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .main-content.shifted {
+            margin-left: 300px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+        }
+
+        .sidebar.active {
+            transform: translateX(300px);
+        }
+
+        /* Rest of your styles remain the same */
+        .sidebar-content {
+            padding: 2rem;
+        }
+
+        .sidebar-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,105,180,0.1);
+            transform: translateX(10px);
+        }
+
+        .nav-link i {
+            margin-right: 10px;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: var(--accent-color);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 0 2rem;
+        }
+
+        .title-section {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .gift-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gift-icon {
+            font-size: 100px;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            z-index: 2000;
+            max-width: 80%;
+        }
+
+        .card.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .gift-icon {
+            animation: float 2s ease-in-out infinite;
+        }
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .audio-controls button {
+            background: var(--accent-color);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="/Dini/audio/bruno-major.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Add audio controls -->
+    <div class="audio-controls">
+        <button id="toggleMusic">
+            <i class="ri-volume-up-line"></i>
+        </button>
+    </div>
+    <button class="toggle-btn">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <h2 class="sidebar-title">Menu</h2>
+            <nav>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="index.html" class="nav-link">
+                        <i class="ri-home-line"></i> Home
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="title-section">
+                <h1 style="font-size: 3rem; color: var(--accent-color);">Untuk Hapid</h1>
+                <p style="font-size: 1.2rem; line-height: 1.6;">
+                   Jangan berharap banyak yaa!! cuma hadiah sederhana ajaa hehe.
+                </p>
+            </div>
+            <div class="gift-section">
+                <i class="ri-gift-2-fill gift-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="card">
+        <button class="close-btn"><i class="ri-close-line"></i></button>
+        <h2 style="color: var(--accent-color);">🎉 DUARRR! 🎉</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6;">
+            Haloo bang, apaa kabar? sehat - sehat terus ya! 
+            gimana BEM Dan perkuliahan ini pasti capek lah ya. Gapapa bang mandor mah kuat!. 
+            Kalo capek istirahat bang, kamu udah mengusahakan yang terbaik. Pokoknya aku sebagai teman bangga dengan apa yang kamu lakuin sekarang.
+            Percaya diri sama keputusan yang mau kamu ambil, terus berproses menjadi lebih baik lagi.
+            Kalo nanti di tengah jalan tiba - tiba ketemu dengan perempuan dan kamu merasa klop baiknya untuk dicoba bang. 
+            Coba untuk berani, jangan takut dengan hasil bang. Hasil itu sudah urusan yang diatas.
+
+            <br><br>
+            Ya ini hadiahnya bang sekedar kartu ucapan dan perpisahan. Aku harap selalu yang terbaik untuk kamu pidz, jangan jadi orang sombong, 
+            jujur sama apa yang kamu kerjakan, sehat untuk kamu dan keluarga, kalo aku masih hidup dan kita ketemu lagi jangan lupa byone bultang lah ya!
+            wish you all the best my bro! Terima kasih sudah mengisi liburan ini dikala lagi sibuk, it was fun and I enjoy it.
+<br><br>    
+            Bay bay
+        </p>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const mainContent = document.querySelector('.main-content');
+        const giftIcon = document.querySelector('.gift-icon');
+        const card = document.querySelector('.card');
+        const overlay = document.querySelector('.overlay');
+        const closeBtn = document.querySelector('.close-btn');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.style.marginLeft = sidebar.classList.contains('active') ? '300px' : '0';
+        });
+
+        giftIcon.addEventListener('click', () => {
+            card.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        function closeCard() {
+            card.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+
+        // New audio functionality
+        const bgMusic = document.getElementById('bgMusic');
+        const toggleMusic = document.getElementById('toggleMusic');
+        let isMusicPlaying = false;
+
+        // Function to handle music autoplay
+        function initializeAudio() {
+            // Try to play audio when page loads
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isMusicPlaying = true;
+                    toggleMusic.innerHTML = '<i class="ri-volume-up-line"></i>';
+                }).catch(error => {
+                    isMusicPlaying = false;
+                    toggleMusic.innerHTML = '<i class="ri-volume-mute-line"></i>';
+                });
+            }
+        }
+
+        // Toggle music play/pause
+        toggleMusic.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                toggleMusic.innerHTML = '<i class="ri-volume-mute-line"></i>';
+            } else {
+                bgMusic.play();
+                toggleMusic.innerHTML = '<i class="ri-volume-up-line"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+
+        // Initialize audio when page loads
+        window.addEventListener('load', initializeAudio);
+
+        // Existing event listeners
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.style.marginLeft = sidebar.classList.contains('active') ? '300px' : '0';
+        });
+
+        giftIcon.addEventListener('click', () => {
+            card.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        function closeCard() {
+            card.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        closeBtn.addEventListener('click', closeCard);
+        overlay.addEventListener('click', closeCard);
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                mainContent.classList.toggle('shifted');
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!sidebar.contains(event.target) && 
+                    !toggleBtn.contains(event.target) && 
+                    sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    mainContent.classList.remove('shifted');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

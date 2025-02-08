@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Rumah Dini</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+       :root {
+            --accent-color: #000000;
+            --bg-color: #f4f4f4;
+            --grid-color: rgba(0,0,0,0.05);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Rest of the previous CSS remains the same */
+        .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1100;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-content {
+    padding: 2rem;
+}
+
+.sidebar-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+        .sidebar-content {
+            padding: 2rem;
+        }
+
+        .sidebar-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            position: relative;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .nav-link {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #777;
+        }
+
+        .nav-link i {
+            margin-right: 10px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            gap: 2rem;
+            background-color: rgba(255,255,255,0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .description {
+            flex: 1;
+            text-align: left;
+            animation: slideIn 1s ease;
+        }
+
+        .description h2 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clickable-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .clickable-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .description {
+                order: 2;
+                text-align: center;
+            }
+
+            .image-container {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="/Dini/audio/sal2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="ri-menu-line"></i>
+    </button>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <h2 class="sidebar-title">Menu</h2>
+            <nav>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="index.html" class="nav-link">
+                        <i class="ri-home-line"></i> Home
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="description">
+                <h2>Rumah Dini</h2>
+                <p>Halo, selamat datang. Sebelumnya rayhan ingin mengucapkan terima kash banyak 
+                    kepada ibu, mas ipin, mas ari dan tentunya dini yang suda mengizinkan untuk bermain. Rayhan juga meminta 
+                    maaf jika ada tingkahnya yang salah selama bermain di rumah. Dari rumah ibu, rayhan 
+                    bisa bertemu dengan orang - orang baru lagi ada mas alvin, mas jepa, mas bagas dan mas-mas yang lainnya wkwkwk.
+<br><br>
+                    Di rumah ibu kita bisa main, makan, kumpul, istirahat dan bercerita.
+                    Makanan yang dibuat ibu kemaren enak banget sumpah ayam baladonya gilaa banget sebenarnya aku mau nambah tapi malu hehe.
+                    love you ibuu ~~.
+
+                    <br> <br>(pencet gambarnya nanti muncul hantu)
+                    
+                </p>
+            </div>
+            <div class="image-container">
+                <img src="/Dini/images/rumah.jpg" alt="Rumah Dini" class="clickable-image" onclick="openLink()" style="height: 500px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function openLink() {
+            window.location.href = 'https://drive.google.com/drive/folders/17f8JNV45DWm3aYkYd7x_zXKcrea-ocDV?usp=sharing';
+        }
+
+        // Optional: Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            
+            if (!sidebar.contains(event.target) && 
+                !sidebarToggle.contains(event.target) && 
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

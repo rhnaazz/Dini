@@ -1,0 +1,412 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balikpapan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <h1 id="home-title" class="text-4xl font-bold text-black">Home</h1>
+
+    <button id="hamburger" class="bg-black p-2 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <div class="sidebar fixed left-0 top-0 h-full w-64 shadow-lg z-50 transform -translate-x-full pt-16">
+        <div class="p-5">
+            <h2 class="text-2xl font-bold mb-6 text-primary text-center">Menu</h2>
+            <nav>
+                <ul>
+                    <li class="mb-2">
+                        <a href="#home" class="nav-link text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 inline" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                            </svg>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#about" class="nav-link text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 inline" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#memories" class="nav-link text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 inline" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Memories</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#present" class="nav-link text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 inline" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-2 0v1H5a1 1 0 100 2h2v1a2 2 0 104 0V8h2a1 1 0 100-2h-2V5a1 1 0 10-2 0v1H7z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Present</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="flex-grow">
+      <!-- Update the Home section -->
+<section id="home" class="min-h-screen">
+    <div class="flex">
+        <section id="pictures" class="container mx-auto px-4 py-12 flex">
+            <div class="w-1/2 pr-8 hidden md:block">
+                <div class="description-container">
+                    <div data-aos="fade-right" data-aos-duration="1000">
+                        <h3 class="text-2xl font-semibold mb-4">Purpose</h3>
+                        <p class="text-gray-600 mb-12">
+                          Alasan pembuat membuat website ini adalah sebagai kenang-kenangan selama liburan ini. 
+                          Pembuat banyak mengucapkan terima kasih dan meminta maaf yang sebesar - besarnya jikalau
+                          pembuat membuat salah. Pembuat berharap kedepannya kita bisa bermain bersama lagi.
+                          Wish you all the best.
+                        </p>
+                    </div>
+                    <div class="ice-bear-card bg-white rounded-xl shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="relative">
+                            <img src="/Dini/images/ice-bear.gif" alt="Ice Bear" class="w-full h-64 object-cover rounded-t-xl">
+                            <div class="ice-bear-overlay absolute inset-0 bg-black bg-opacity-30 rounded-t-xl flex items-end">
+                                <div class="p-6 text-white">
+                                    <h4 class="text-2xl font-bold mb-2">Reminder</h4>
+                                    <p class="text-sm opacity-90">Jan lupa istirahat</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600 text-sm">love you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                    
+            <div class="slider-container w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                        <button class="slider-btn prev-btn" style="display:none;">&#10094;</button>
+                        <div class="slider">
+                            <img src="/Dini/images/rayhan.png" class="slide active" alt="Slide 1">
+                            <img src="/Dini/images/test2.jpg" class="slide" alt="Slide 2" style="display:none;">
+                            <img src="/Dini/images/test3.jpg" class="slide" alt="Slide 3" style="display:none;">
+                        </div>
+                        <button class="slider-btn next-btn">&#10095;</button>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="about" class="min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-6xl font-bold text-center mb-16 text-gray-800" data-aos="fade-down" data-aos-duration="1000">
+                    Balikpapan Kota Beriman
+                </h2>
+        
+                <div class="about-slider-container mb-12" data-aos="zoom-in" data-aos-duration="1200">
+                    <button class="about-slider-btn prev-btn" style="display:none;">&#10094;</button>
+                    <div class="about-slider">
+                        <img src="/Dini/images/about1.jpg" class="about-slide active" alt="About Slide 1">
+                        <img src="/Dini/images/about2.jpg" class="about-slide" alt="About Slide 2" style="display:none;">
+                        <img src="/Dini/images/about3.jpg" class="about-slide" alt="About Slide 3" style="display:none;">
+                    </div>
+                    <button class="about-slider-btn next-btn">&#10095;</button>
+                </div>
+        
+                <!-- Slider Description -->
+                <div class="max-w-3xl mx-auto mb-20" data-aos="fade-up" data-aos-duration="1000">
+                    <p class="text-lg text-gray-700 text-center leading-relaxed">
+                       Selamat datang di Kota Balikpapan, Kota yang tidak besar tapi penuh dengan kenangan. Di kota ini jalanannya sudah kayak jogja kata hapid,
+                       kita juga punya mall besar namanya BSB, pantai ada banyak, Pengendaranya jarang klakson. Klakson hanya digunakan untuk menyapa teman/saudara.
+                       Sekarang sudah banyak yang baru sih, ada gacoan, Tomoro, kopi lima dan masih banyak hal baru lainnya. Liburan ini kita sudah bultang, 
+                       belajar mobil, main ps, nonton, ke indomaret, dan photobooth dan masih banyak lagi.
+<br>
+                       (gaes itu ada tanda panah di bawah gambar itu bisa dipencet-pencet ya! gambar atasnya juga)
+                    </p>
+                </div>
+        
+                <h3 class="text-4xl font-bold text-center mb-12 text-gray-800" data-aos="fade-down" data-aos-duration="1000">
+                    THE CHARACTER
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Character Card 1 -->
+                    <div class="character-card" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000">
+                        <div class="character-image-container">
+                            <img src="/Dini/images/rayhan2.jpg" alt="Character 1" class="character-image">
+                        </div>
+                        <div class="character-info">
+                            <h4 class="text-xl font-semibold mb-2">Rayhan</h4>
+                            <p class="text-gray-600">Halo aku adalah pembuat web ini. gak bisa mendeskripsikan diri sendiri, bisanya
+                             bantuin bunda ke pasar. Kata bunda sih aku ganteng, paling baik, jujur dan tidak sombong.    
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- Character Card 2 -->
+                    <div class="character-card" data-aos="flip-left" data-aos-delay="200" data-aos-duration="1000">
+                        <div class="character-image-container">
+                            <img src="/Dini/images/hapid2.jpg" alt="Character 2" class="character-image">
+                        </div>
+                        <div class="character-info">
+                            <h4 class="text-xl font-semibold mb-2">Hapid</h4>
+                            <p class="text-gray-600">KETUA BEM KITA CIKK. Si sibuk tapi gacor leee. Semangat terus pidd jangan kasih kendor lah pokoknya.
+                                jangan ragu - ragu sama keputusan sendiri. Percaya diri sama keputusan mu bang. Hapid ini pokoknya in the world of boy
+                                he's a gentleman.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- Character Card 3 -->
+                    <div class="character-card" data-aos="flip-left" data-aos-delay="300" data-aos-duration="1000">
+                        <div class="character-image-container">
+                            <img src="/Dini/images/dini.jpg" alt="Character 3" class="character-image">
+                        </div>
+                        <div class="character-info">
+                            <h4 class="text-xl font-semibold mb-2">Dini</h4>
+                            <p class="text-gray-600">
+                                Malasnya aku menjelaskan si kentut ini. Canda :) . Ini si seleb gaes, mamahnya kentut sekarang. 
+                                Orangnya baek banget super duper poll, cantik poll, mempunyai kepercayaan diri yang tinggi, 
+                                Pokokya apapun hal yang baik dia rata kanan gaes. Jangan sombong, infokan magang bareng.
+
+                            </p>
+                        </div>
+                    </div>
+        
+                    <!-- Character Card 4 -->
+                    <div class="character-card" data-aos="flip-left" data-aos-delay="400" data-aos-duration="1000">
+                        <div class="character-image-container">
+                            <img src="/Dini/images/cindy2.jpg" alt="Character 4" class="character-image">
+                        </div>
+                        <div class="character-info">
+                            <h4 class="text-xl font-semibold mb-2">Cindy</h4>
+                            <p class="text-gray-600">Wahh ini gaess, Si Hebat kita. Cok aku baru datang dari sby tiba2 lu punya pacar gitu brok.
+                                Kelazz lah pokoknya, selamat ya!. Orangnya baekk sebenarnya cuma kadang kebiasaan physical attacknya keluar.
+                                Jangan sering - sering ngilang yaa kodok. Pokoknya kalo ada apa - apa bilang okay!!. Cantik, pinter, ITS anjazzz
+                                kelaz gini brok tekfis. Cukup sudah aku muji nanti gede palanya malas aku :v .
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="memories" class="min-h-screen py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Left Side Content -->
+                <div class="lg:w-2/5" data-aos="fade-right">
+                    <h2 class="text-6xl font-bold text-gray-800 mb-8">Our Memories</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                       Selamat datang di kenang - kenangan. Ini semua adalah foto dan video selama liburan ini.
+                       Walaupun gak semuanya aku tampilin gaes cuma beberapa saja. Hope you all enjoy it.
+                    </p>
+                </div>
+    
+                <!-- Right Side - Memory Cards -->
+                <div class="lg:w-3/5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-left">
+                        <!-- Bultang Card -->
+                        <a href="bultang.html" class="memory-link">
+                            <div class="memory-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="memory-content">
+                                    <h3 class="text-2xl font-semibold mb-4">Olahraga</h3>
+                                    <p class="text-gray-600 mb-4">Ini adalah kenang-kenangan Ber-olahraga kita. since 2024-2025.</p>
+                                    <div class="view-more">
+                                        <span>View memories</span>
+                                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+    
+                        <!-- Rumah Dini Card -->
+                        <a href="/Dini/rumah.html" class="memory-link">
+                            <div class="memory-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="memory-content">
+                                    <h3 class="text-2xl font-semibold mb-4">Rumah Dini</h3>
+                                    <p class="text-gray-600 mb-4">Basecamp gak sih sudah din. Tempat istirahat, Tempat bermain dan tempat kumpul.</p>
+                                    <div class="view-more">
+                                        <span>View memories</span>
+                                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+    
+                        <!-- Random Card -->
+                        <a href="random.html" class="memory-link">
+                            <div class="memory-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="memory-content">
+                                    <h3 class="text-2xl font-semibold mb-4">Random</h3>
+                                    <p class="text-gray-600 mb-4">Random aja pokoknya.</p>
+                                    <div class="view-more">
+                                        <span>View memories</span>
+                                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+    
+                        <!-- Pantai Card -->
+                        <a href="/memories/pantai" class="memory-link">
+                            <div class="memory-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="memory-content">
+                                    <h3 class="text-2xl font-semibold mb-4">Pantai</h3>
+                                    <p class="text-gray-600 mb-4">Gaes inikan aku buat tgl 5 sedangkan ini belum kepantai
+                                        maaf yeah kalo ini gak berfungsi. Pembuat sudah lelah :( .
+                                    </p>
+                                    <div class="view-more">
+                                        <span>View memories</span>
+                                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+<!-- HTML Section -->
+<section id="present" class="min-h-screen py-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-6xl font-bold text-center mb-16 text-gray-800" data-aos="fade-down" data-aos-duration="1000">
+            Present for All!
+        </h2>
+     
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Present Card 1 -->
+            <div class="present-card" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000">
+                <div class="present-content">
+                    <div class="present-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="present-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Hapid's Present</h3>
+                    <p class="text-gray-600 mb-4">Tebak hadiahnya apa pidz</p>
+                    <div class="password-input-container">
+                        <input type="password" class="password-input" placeholder="Enter password" data-present-id="1">
+                        <button class="unlock-btn" onclick="checkPassword(1)">Unlock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Present Card 2 -->
+            <div class="present-card" data-aos="flip-left" data-aos-delay="200" data-aos-duration="1000">
+                <div class="present-content">
+                    <div class="present-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="present-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Dini's Present</h3>
+                    <p class="text-gray-600 mb-4">Tebak hadiah, kalo bener dikasih uang sama cindy.</p>
+                    <div class="password-input-container">
+                        <input type="password" class="password-input" placeholder="Enter password" data-present-id="2">
+                        <button class="unlock-btn" onclick="checkPassword(2)">Unlock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Present Card 3 -->
+            <div class="present-card" data-aos="flip-left" data-aos-delay="300" data-aos-duration="1000">
+                <div class="present-content">
+                    <div class="present-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="present-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 12v10H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Cindy's Present</h3>
+                    <p class="text-gray-600 mb-4">Hadiahnya kodok zuma</p>
+                    <div class="password-input-container">
+                        <input type="password" class="password-input" placeholder="Enter password" data-present-id="3">
+                        <button class="unlock-btn" onclick="checkPassword(3)">Unlock</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<audio id="bgMusic" loop>
+    <source src="/Dini/audio/JohnMayer.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Add audio controls -->
+<div class="audio-controls">
+    <p>Pencet untuk music</p>
+    <button id="toggleMusic">
+        <i class="ri-volume-up-line"></i>
+    </button>
+</div>
+
+<button class="toggle-btn">
+    <i class="ri-menu-line"></i>
+</button>
+
+<footer class="bg-black text-white text-center py-4">
+    <p>Dibuat Oleh Rayhan Aurelia Pramana rijal
+        <br>masih banyak kurangnya hehe, maaf belum bisa sempurna kak karena yang sempurna hanya Allah SWT.
+    </p>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const toggleMusic = document.getElementById('toggleMusic');
+        const bgMusic = document.getElementById('bgMusic');
+        let isMusicPlaying = false;
+        
+        function initializeAudio() {
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isMusicPlaying = true;
+                    toggleMusic.innerHTML = '<i class="ri-volume-up-line"></i>';
+                }).catch(error => {
+                    isMusicPlaying = false;
+                    toggleMusic.innerHTML = '<i class="ri-volume-mute-line"></i>';
+                });
+            }
+        }
+        
+        toggleMusic.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                toggleMusic.innerHTML = '<i class="ri-volume-mute-line"></i>';
+            } else {
+                bgMusic.play();
+                toggleMusic.innerHTML = '<i class="ri-volume-up-line"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+        
+        window.addEventListener('load', initializeAudio);
+        </script>
+</body>
+</html>
+
